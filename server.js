@@ -12,8 +12,7 @@ dotenv.config({ path: './config.env' });
 
 const LDB = process.env.LOCAL_DATABASE;
 const DB = process.env.DATABASE.replace('<password>', process.env.PASSWORD);
-mongoose
-    .connect(DB, {
+mongoose.connect(DB, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,

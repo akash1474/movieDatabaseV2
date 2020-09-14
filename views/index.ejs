@@ -41,7 +41,22 @@
                     </div>
                 </h1>
                 <div class="center__intro">
-                    <div class="intro__welcome"></div>
+                    <div class="intro__welcome">
+                        <div class="welcome__movie media">
+                            <div class="title">Movie</div>
+                            <div class="info">
+                                <div class="count"><%=overallStats[1].totalCount %></div>
+                                <div class="size"><%=(overallStats[1].totalSize/1024).toFixed(2)%> GB</div>
+                            </div>
+                        </div>
+                        <div class="welcome__tv media">
+                            <div class="title">Webseries</div>
+                            <div class="info">
+                                <div class="count"><%=overallStats[0].totalCount %></div>
+                                <div class="size"><%=(overallStats[0].totalSize/1024).toFixed(2)%>GB</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="intro__recently">
                         <p class="recently__header">Discover</br>Recommended movies & webseries</p>
                         <div class="recently__animation"></div>

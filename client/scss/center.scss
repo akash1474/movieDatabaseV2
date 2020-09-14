@@ -249,6 +249,75 @@
                 padding: 5px;
                 flex-grow: 1;
                 margin-right: 10px;
+                position:relative;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                .media{
+                    height: 20px;
+                    width: 100px;
+                    padding: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    cursor:pointer;
+                }
+
+                .welcome__tv{
+                    border-radius:27px 5px 5px 2px;
+                    background: #ff82bc;
+                    transition-duration: 0.35s;
+                    height: 20px;
+
+                    &:hover{
+                        height: 55px;
+                    }
+
+                    &:hover>.info{
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                .welcome__movie{
+                    border-radius: 5px 27px 2px 5px;
+                    background: #9395f8;
+                    transition-duration: 0.35s;
+                    height: 20px;
+
+                    &:hover{
+                        height: 55px;
+                    }
+
+                    &:hover>.info{
+                        opacity: 1;
+                    }
+                }
+
+                .title{
+                        font-family: "Product Sans Medium";
+                        font-size: 16px;
+                        margin-bottom: auto;
+                    }
+
+                    .info{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        opacity: 0;
+                        transition-duration: 0.8s;
+
+                        .count{
+                            font-size: 20px;
+                            color: #fff;
+                        }
+
+                        .size{
+                            font-size: 12px;
+                            color: #333;
+                            font-family: "Product Sans";
+                        }
+                    }
             }
 
             .intro__recently {

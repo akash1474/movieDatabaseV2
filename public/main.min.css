@@ -604,7 +604,55 @@ body {
         background-size: cover;
         padding: 5px;
         flex-grow: 1;
-        margin-right: 10px; }
+        margin-right: 10px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between; }
+        .body__center--left .body__center .center__intro .intro__welcome .media {
+          height: 20px;
+          width: 100px;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer; }
+        .body__center--left .body__center .center__intro .intro__welcome .welcome__tv {
+          border-radius: 27px 5px 5px 2px;
+          background: #ff82bc;
+          transition-duration: 0.35s;
+          height: 20px; }
+          .body__center--left .body__center .center__intro .intro__welcome .welcome__tv:hover {
+            height: 55px; }
+          .body__center--left .body__center .center__intro .intro__welcome .welcome__tv:hover > .info {
+            opacity: 1;
+            transform: translateY(0); }
+        .body__center--left .body__center .center__intro .intro__welcome .welcome__movie {
+          border-radius: 5px 27px 2px 5px;
+          background: #9395f8;
+          transition-duration: 0.35s;
+          height: 20px; }
+          .body__center--left .body__center .center__intro .intro__welcome .welcome__movie:hover {
+            height: 55px; }
+          .body__center--left .body__center .center__intro .intro__welcome .welcome__movie:hover > .info {
+            opacity: 1; }
+        .body__center--left .body__center .center__intro .intro__welcome .title {
+          font-family: "Product Sans Medium";
+          font-size: 16px;
+          margin-bottom: auto; }
+        .body__center--left .body__center .center__intro .intro__welcome .info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          opacity: 0;
+          transition-duration: 0.8s; }
+          .body__center--left .body__center .center__intro .intro__welcome .info .count {
+            font-size: 20px;
+            color: #fff; }
+          .body__center--left .body__center .center__intro .intro__welcome .info .size {
+            font-size: 12px;
+            color: #333;
+            font-family: "Product Sans"; }
       .body__center--left .body__center .center__intro .intro__recently {
         height: 210px;
         width: 200px;

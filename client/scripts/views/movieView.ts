@@ -164,7 +164,7 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
                 voteAverage:movie.vote_average,
                 quality:(document.getElementById("movie__quality")!as HTMLSelectElement).value,
             }
-            await Axios.post('http://localhost:3000/api/v1/movies',movieData);
+            await Axios.post('https://hardrive-database-1474.herokuapp.com/api/v1/movies',movieData);
         }else{
             alert("Please provide the size!!!");
         }
