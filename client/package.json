@@ -1,0 +1,25 @@
+{
+    "name": "src",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "compile:sass": "node-sass ./scss/main.scss ../public/main.min.css -w",
+        "liveserver": "live-server",
+        "dev": "npm-run-all compile:sass",
+        "compress:css": "node-sass ./css/main.css ./css/main.min.css --output-style compressed",
+        "start": "webpack -w"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.20.0",
+        "lottie-web": "^5.7.3",
+        "moment": "^2.27.0"
+    },
+    "devDependencies": {
+        "ts-loader": "^8.0.3",
+        "typescript": "^4.0.2",
+        "webpack-dev-server": "^3.11.0"
+    }
+}

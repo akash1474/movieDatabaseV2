@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Movies Database-Online management of offline movies collection</title>
+        <link rel="stylesheet" href="./css/main.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet" />
+        <script defer type="module" src="./dist/bundle.js"></script>
+    </head>
+    <body>
+        <div class="main__body">
+            <!-- MAIN BODY -->
+            <div class="body__center--left">
+                <div class="body__center--top">
+                    <div class="center__search">
+                    <svg class="icon">
+                        <use xlink:href="./assets/assets.svg#icon-Search"></use>
+                    </svg>
+                    <input type="text" id="online-search" placeholder="Database Search" />
+                    <div class="search__results"></div>
+                </div>
+                <div class="center__top--user">
+                    <div class="user__img"></div>
+                    <div class="user__name">Developer Login</div>
+                </div>
+                </div>
+                
+                <div class="body__center">
+                <h1 class="center__header">
+                    <p>Hey there</br>What's Up</p>
+                    <div class="stats">
+                        <p>Total Movies</p>
+                        <p>215</p>
+                    </div>
+                </h1>
+                <div class="center__intro">
+                    <div class="intro__welcome"></div>
+                    <div class="intro__recently">
+                        <p class="recently__header">Discover</br>Recommended movies & webseries</p>
+                        <div class="recently__animation"></div>
+                    </div>
+                </div>
+                <div class="center__activity">
+                    <svg class="icon">
+                        <use xlink:href="./assets/assets.svg#icon-recent"></use>
+                    </svg>
+                    <p class="activity__title">Activity & Updates</p>
+                </div>
+                <div class="center__recent">
+                    <div class="recent__icon">
+                        <svg class="icon">
+                            <use xlink:href="./assets/assets.svg#icon-Calendar"></use>
+                        </svg>
+                        <p class="recent__title">Recently added</p>
+                        <button class="recent__more--btn">Explore more</button>
+                    </div>
+
+                    <div class="recent__body">
+                        <div class="recent__movie">
+                            <img src="./test/pacific.jpg" data-id="268896" id="open-movie-info" alt="">
+                            <div class="recent__movie--title">Pacific Rim: Uprising</div>
+                        </div>
+                        <div class="recent__movie">
+                            <img src="./test/infinity.jpg" alt="">
+                            <div class="recent__movie--title">Avengers: Infinity War</div>
+                        </div>
+                        <div class="recent__movie">
+                            <img src="./test/endgame.jpg" alt="">
+                            <div class="recent__movie--title">Avengers: Endgame</div>
+                        </div>
+                        <div class="recent__movie">
+                            <img src="./test/ghost.jpg" alt="">
+                            <div class="recent__movie--title">Ghost In The Shell</div>
+                        </div>
+                        <div class="recent__movie">
+                            <img src="./test/predator.jpg" alt="">
+                            <div class="recent__movie--title">The Predator</div>
+                        </div>
+                        <div class="recent__movie">
+                            <img src="./test/predator.jpg" alt="">
+                            <div class="recent__movie--title">The Predator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- SEARCH SECTION -->
+            <div class="search-section">
+                <div class="header-image">
+                    <div class="bucket__icon">
+                        <svg class="icon-activity">
+                        <use xlink:href="./assets/assets.svg#icon-Bag"></use>
+                        </svg>
+                    </div>
+                    <div class="bucket__list">
+                        <div class="bucket__header">
+                            <header>Bucket List</header>
+                            <svg class="icon-cross">
+                                    <use xlink:href="./assets/assets.svg#icon-cross"></use>
+                            </svg>
+                        </div>
+                        <div class="bucket__body">
+                            <div class="bucket__movie">
+                                <div class="movie__title">Avengers:Infinity War</div>
+                                <div class="movie__size">1.05GB</div>
+                                <div class="movie__remove">
+                                    <svg class="icon-minus">
+                                        <use xlink:href="./assets/assets.svg#icon-minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bucket__movie">
+                                <div class="movie__title">Alien Vs Predator: Requium</div>
+                                <div class="movie__size">1.05GB</div>
+                                <div class="movie__remove">
+                                    <svg class="icon-minus">
+                                        <use xlink:href="./assets/assets.svg#icon-minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bucket__movie">
+                                <div class="movie__title">Avengers:Endgame</div>
+                                <div class="movie__size">1.05GB</div>
+                                <div class="movie__remove">
+                                    <svg class="icon-minus">
+                                        <use xlink:href="./assets/assets.svg#icon-minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bucket__movie">
+                                <div class="movie__title">Pacific Rim Uprising</div>
+                                <div class="movie__size">1.05GB</div>
+                                <div class="movie__remove">
+                                    <svg class="icon-minus">
+                                        <use xlink:href="./assets/assets.svg#icon-minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bucket__movie">
+                                <div class="movie__title">Ghost In The Shell</div>
+                                <div class="movie__size">1.05GB</div>
+                                <div class="movie__remove">
+                                    <svg class="icon-minus">
+                                        <use xlink:href="./assets/assets.svg#icon-minus"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bucket__stats">
+                            <div class="stats__count stats">
+                                <p class="title">Total Count:</p>
+                                <p class="value">4 Movies</p>
+                            </div>
+                            <div class="stats__size stats">
+                                <p class="title">Total Size:</p>
+                                <p class="value">3.68GB</p>
+                            </div>
+                        </div>
+                        <div class="bucket__time">
+                            Estimated duration for file transfer:<b class="time">4 min</b>
+                        </div>
+                    </div>
+                    <img src="./assets/Man.svg" height="150" alt="" srcset="" />
+                    <div class="search-header">
+                        <h1>Archieved</br>Movies & Webseries</h1>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" name="" id="database-search" placeholder="Hardrive Search" />
+                        <svg class="icon-search">
+                            <use xlink:href="./assets/assets.svg#icon-Search"></use>
+                        </svg>
+                    </div>
+                </div>
+                <p class="search-title">Search Result</p>
+                <div class="search-results"></div>
+            </div>
+        </div>
+
+        <div class="login__screen">
+            <div class="login__container">
+                <button class="login__close">
+                    <svg class="icon-close">
+                        <use xlink:href="./assets/assets.svg#icon-cross"></use>
+                    </svg>
+                </button>
+                <div class="login__image"></div>
+                <div class="login__header">Developer Login</div>
+                <form method="POST" id="user__form">
+                <input type="text" name="email" placeholder="Email" id="user__email">
+                <input type="password" name="password" placeholder="Password" id="user__pass">
+                <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="movie__screen"></div>
+
+
+        <div class="movie__list--screen">
+            <div class="movies__list">
+            <div class="list__header">
+                <div class="movie__title">Hardrive Movies</div>
+                <div class="list__header--search">
+                    <svg class="icon">
+                        <use xlink:href="./assets/assets.svg#icon-Search"></use>
+                    </svg>
+                    <input type="text" placeholder="Hardrive Search" name="search" id="list__search">
+                </div>
+                <button class="close__btn--list">
+                    <svg class="icon-close">
+                        <use xlink:href="./assets/assets.svg#icon-cross"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="movies__container">
+                <div class="list__movie">
+                    <img src="./test/infinity.jpg" alt="">
+                    <div class="list__movie--title">Avengers: Infinity War</div>
+                </div>   
+            </div>
+        </div>
+        </div>
+
+        <div class="movie__add--screen"></div>
+    </body>
+</html>

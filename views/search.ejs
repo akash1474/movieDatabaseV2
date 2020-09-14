@@ -1,0 +1,46 @@
+<div class="search-section">
+                <div class="header-image">
+                    <div class="bucket__icon" data-items="0">
+                        <svg class="icon-activity">
+                        <use xlink:href="assets.svg#icon-Bag"></use>
+                        </svg>
+                    </div>
+                    <div class="bucket__list"></div>
+                    <img src="Man.svg" height="150" alt="" srcset="" />
+                    <div class="search-header">
+                        <h1>Archieved</br>Movies & Webseries</h1>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" name="" id="database-search" placeholder="Hardrive Search" />
+                        <svg class="icon-search">
+                            <use xlink:href="assets.svg#icon-Search"></use>
+                        </svg>
+                    </div>
+                </div>
+                <p class="search-title">Search Result</p>
+                <div class="search-results">
+                    <%if(data.length>0){%>
+                        <%data.forEach(movie=>{%>
+                            <%const releaseYear = new Date(movie.releaseDate).getFullYear();%>
+                                <div data-title="<%=movie.title%>" data-id="<%=movie.id%>" class="movie">
+                        <img id="open-movie-info" src="https://image.tmdb.org/t/p/w500<%=movie.posterPath%>" height="80" width="65" alt="" class="movie-image" />
+                        <div class="movie-rating"><%=movie.voteAverage%></div>
+                        <div class="movie-info">
+                            <p class="movie-name"><%=movie.title%>(<%=releaseYear%>)</p>
+                            <div class="movie-add" data-id="<%=movie.movieId%>" data-size="<%=movie.size%>", data-title="<%=movie.title%>">
+                                <svg class="icon-add">
+                                    <use xlink:href="assets.svg#icon-Bag"></use>
+                                </svg>
+                            </div>
+                            <div class="movie-stats">
+                                <p class="movie-size"><%=movie.size>1024?(movie.size/1024).toFixed(2)+'GB':movie.size+'MB'%></p>
+                                <p class="movie-quality"><%=movie.quality%></p>
+                            </div>
+                        </div>
+                    </div>
+                            <%})%>
+                    <%}%>
+                </div>
+</div>

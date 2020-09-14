@@ -1,0 +1,8 @@
+Gradient #F6D4E0  #EDD2F7   #E2D1FF
+Dark Blue #7B7EF6  #7B7EF6  Light #F4F4FF
+Blue #68A6FE  Light #ECF3FF
+Pink #FF93BC  Light #FCEFF7
+Black #1E152F  #C8C2E5(Unselected)
+Green #74D19C  #52CAED
+Yellow #F7BD58 #F8C56C
+White #FCFCFF

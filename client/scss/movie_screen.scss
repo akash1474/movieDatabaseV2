@@ -1,0 +1,202 @@
+.movie__screen{
+	position: absolute;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    background-color: #1e152f40;
+    place-items: center;
+	.movie{
+		height: fit-content;
+        width: 350px;
+        background:#fff;
+        border-radius: 5px;
+        padding:5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+		.movie__header{
+			display: flex;
+			justify-content: space-between;
+			width:95%;
+			height:25px;
+			margin-top: 10px;
+			align-items: center;
+
+			.movie__title{
+				font-size:14px;
+				font-family: "Product Sans Medium";
+				color:#333;
+			}
+
+			.close__btn--movieInfo{
+				height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            position: absolute;
+            display: grid;
+            place-items: center;
+            border: none;
+            right: 10px;
+            background-color: transparent;
+            cursor: pointer;
+            &:hover {
+                background-color: lighten($pink, 17);
+            }
+
+            &:focus {
+                border: none;
+                outline: none;
+            }
+
+            &:active {
+                background-color: lighten($pink, 10);
+            }
+            .icon-close {
+                height: 15px;
+                width: 15px;
+                fill: #ff6791;
+            }
+			}
+		}
+
+		.movie__poster{
+			position: relative;
+			margin-top: 15px;
+			#info__poster{
+				height: 128px;
+				border-radius:5px;
+			}
+
+			.movie__rating{
+				position:absolute;
+				right:-10px;
+				top: -10px;
+				background:$darkBlue;
+				font-size:12px;
+				display: grid;
+				place-items:center;
+				border-radius:50%;
+				height:25px;
+				width:25px;
+				color:#fff;
+			}
+		}
+
+		.movie__name{
+			font-size:16px;
+			font-family: "Product Sans Medium";
+			color:$black;
+		}
+
+		.movie__year{
+			font-size:12px;
+			color:lighten($black, 20);
+			font-family: "Product Sans Medium";
+		}
+
+		.movie__geners{
+			width: 80%;
+			display: flex;
+			align-items:center;
+			justify-content: space-evenly;
+			margin:15px 5px;
+			.gener{
+				padding:5px 7px;
+				text-align: center;
+				border-radius:5px;
+				color: #fff;
+				font-size: 12px;
+				font-family: "Product Sans";
+				&:nth-child(1){
+					background:#ff4d77;
+				}
+				&:nth-child(2){
+					background-color:lighten($darkBlue, 10);
+				}
+				&:nth-child(3){
+					background:#2bd2aa;
+				}
+				&:nth-child(4){
+					background:$blue;
+				}
+			}
+		}
+		.movie__overview{
+			width:100%;
+			text-align:center;
+			font-size:12px;
+			font-family: "Product Sans Medium";
+			color:#777;
+			height: fit-content;
+			max-height: 130px;
+		}
+
+		.movies__scroll{
+			display: flex;
+            height: 190px;
+            width: 95%;
+            flex-direction: column;
+            align-items: flex-start;
+            background: #fff;
+            justify-content: center;
+            border-radius: 5px;
+			.scroll__header{
+				font-size: 13px;
+                font-family: 'Product Sans Medium';
+                margin: 0;
+                margin-bottom: 10px;
+			}	
+
+			.movies__body{
+				display: flex;
+                width: 100%;
+                overflow: hidden;
+                overflow-x: auto;
+
+                    &::-webkit-scrollbar {
+                        height: 7px;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: rgb(167, 167, 167);
+                        height: 7px;
+                        border-radius: 3px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        height: 7px;
+                    }
+
+				.similar__movie{
+					height: 140px;
+                    width: 115px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    background:#fff;
+                    &:not(:last-child) {
+                        padding-right: 20px;
+                    }
+                    img {
+                        border-radius: 5px;
+                        height: 90px;
+                        width: auto;
+                    }
+
+					.similar__movie--title{
+						text-align: center;
+                        width: 100%;
+                        height: 50px;
+                        color: #444;
+                        font-size: 11px;
+                        font-family: 'Product Sans Medium';
+                        margin-top: 5px;
+					}
+				}
+			}
+		}
+	}
+
+}

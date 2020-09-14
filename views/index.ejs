@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Movies Database-Online management of offline movies collection</title>
+        <link rel="stylesheet" href="main.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet" />
+        <script defer type="module" src="bundle.js"></script>
+    </head>
+    <body>
+        <div class="main__body">
+            <!-- MAIN BODY -->
+            <div class="body__center--left">
+                <div class="body__center--top">
+                    <div class="center__search">
+                    <svg class="icon">
+                        <use xlink:href="assets.svg#icon-Search"></use>
+                    </svg>
+                    <input type="text" id="online-search" placeholder="Database Search" />
+                    <div class="search__results"></div>
+                </div>
+                <div class="center__top--user">
+                    <div class="user__img"></div>
+                    <%if(user!==""){%>
+                        <div class="user__name">Hello! Akash</div>
+                    <% }else{%>
+                        <div class="user__name">Developer Login</div>
+                    <%}%>
+                </div>
+                </div>
+                
+                <div class="body__center">
+                <h1 class="center__header">
+                    <p>Hey there</br>What's Up</p>
+                    <div class="stats">
+                        <p>Total Movies</p>
+                        <p><%=data.length%></p>
+                    </div>
+                    <div class="stats">
+                        <p>Total Movies</p>
+                        <p><%=data.length%></p>
+                    </div>
+                </h1>
+                <div class="center__intro">
+                    <div class="intro__welcome"></div>
+                    <div class="intro__recently">
+                        <p class="recently__header">Discover</br>Recommended movies & webseries</p>
+                        <div class="recently__animation"></div>
+                    </div>
+                </div>
+                <div class="center__activity">
+                    <svg class="icon">
+                        <use xlink:href="assets.svg#icon-recent"></use>
+                    </svg>
+                    <p class="activity__title">Activity & Updates</p>
+                </div>
+                <div class="center__recent">
+                    <div class="recent__icon">
+                        <svg class="icon">
+                            <use xlink:href="assets.svg#icon-Calendar"></use>
+                        </svg>
+                        <p class="recent__title">Recently added</p>
+                        <button class="recent__more--btn">Explore more</button>
+                    </div>
+
+                    <div class="recent__body">
+	                    	<%if(data.length>0){%>
+	                    	<%data.reverse()%>
+	                	<%data.forEach(movie=>{%>
+	                		<div class="recent__movie">
+                                <img src="https://image.tmdb.org/t/p/w500<%=movie.posterPath%>" data-id="<%=movie.id%>" id="open-movie-info" alt="">
+                                <div class="recent__movie--title"><%=movie.title%></div>
+                            </div>
+			                		<%})%>
+			                <%}%>
+                    </div>
+                </div>
+                <!-- Trending -->
+                <div class="center__recent">
+                    <div class="recent__icon">
+                        <svg class="icon">
+                            <use xlink:href="assets.svg#icon-Calendar"></use>
+                        </svg>
+                        <p class="recent__title">Top Trending</p>
+                    </div>
+
+                    <div class="recent__body">
+                            <%if(trending.length>0){%>
+                            <%data.reverse()%>
+                        <%trending.forEach(movie=>{%>
+                            <div class="recent__movie">
+                                <img src="https://image.tmdb.org/t/p/w500<%=movie.poster_path%>" data-id="<%=movie.id%>" id="open-movie-info" alt="">
+                                <div class="recent__movie--title"><%=movie.title%></div>
+                            </div>
+                                    <%})%>
+                            <%}%>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- SEARCH SECTION -->
+            <%-include("./search.ejs") %>
+        </div>
+
+        <div class="login__screen">
+            <div class="login__container">
+                <button class="login__close">
+                    <svg class="icon-close">
+                        <use xlink:href="assets.svg#icon-cross"></use>
+                    </svg>
+                </button>
+                <div class="login__image"></div>
+                <div class="login__header">Developer Login</div>
+                <form method="POST" id="user__form">
+                <input type="text" name="email" placeholder="Email" id="user__email">
+                <input type="password" name="password" placeholder="Password" id="user__pass">
+                <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="movie__screen"></div>
+
+
+        <div class="movie__list--screen">
+            <div class="movies__list">
+            <div class="list__header">
+                <div class="movie__title">Hardrive Movies</div>
+                <div class="list__header--search">
+                    <svg class="icon">
+                        <use xlink:href="assets.svg#icon-Search"></use>
+                    </svg>
+                    <input type="text" placeholder="Hardrive Search" name="search" id="list__search">
+                </div>
+                <button class="close__btn--list">
+                    <svg class="icon-close">
+                        <use xlink:href="assets.svg#icon-cross"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="movies__container">
+                <%if(data.length>0){%>
+                	<%data.forEach(movie=>{%>
+                		<div data-title="<%=movie.title%>" class="list__movie">
+		                    <img src="https://image.tmdb.org/t/p/w500<%=movie.posterPath%>">
+		                    <div class="list__movie--title"><%=movie.title%></div>
+                            <div data-id="<%=movie.movieId%>" data-size="<%=movie.size%>", data-title="<%=movie.title%>" class="bucket__add--popup">
+                                <svg class="icon">
+                                    <use xlink:href="assets.svg#icon-add"></use>
+                                </svg>
+                            </div>
+                            <div class="list__movie--rating"><%=movie.voteAverage%></div>
+                		</div>
+                		<%})%>
+                <%}%>
+            </div>
+        </div>
+        </div>
+
+        <div class="movie__add--screen"></div>
+
+        <div id="popup__container">
+            <div class="animatedSvg"></div>
+            <div class="some__text">Logged in successfully!!!</div>
+        </div>
+    </body>
+</html>

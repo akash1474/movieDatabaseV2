@@ -1,0 +1,53 @@
+*,
+*::before,
+*:after {
+    font-family: 'Product Sans', 'monospace';
+    color: $black;
+}
+
+body {
+    background: linear-gradient(to right, $gradient1, $gradient2, $gradient3);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-size: 62.5%;
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.main__body {
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    display: flex;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+@mixin alignCenterV {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+@mixin alignCenterH {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
