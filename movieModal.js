@@ -8,6 +8,11 @@ const movieSchema =new mongoose.Schema(
             required: [true, 'A movie must have a title'],
             trim: true,
         },
+        category:{
+            type:String,
+            required:[true,'A movie must have a category property!!!'],
+            enum:["tv","movie"],
+        },
         releaseDate: {
             type: Date,
             required: [true, 'A movie must have a releaseDate property'],

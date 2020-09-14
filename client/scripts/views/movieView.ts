@@ -25,15 +25,22 @@ const renderSimilarMovies=async (id:number)=>{
 
 	similarContainer.addEventListener("click",(e)=>{
 		if((e.target! as HTMLImageElement).id==='open-movie-info'){
-			renderMovie(+(e.target! as HTMLImageElement).dataset.id!);
+			renderMovie(+(e.target! as HTMLImageElement).dataset.id!,"movie");
 		}
 	});
 };
 
 
-export const renderMovie=async (id:number)=>{
+export const renderMovie=async (id:number,type:string)=>{
 
-	const data=await MovieDB.getMovie("movie",id);
+	let data;
+
+    if(type==="movie"){
+      data=await MovieDB.getMovie("movie",id);
+    }else{
+        data=await MovieDB.getMovie("tv",id);
+    }
+
 	const movie:Movie=data.data;
 	console.log(movie);
 	let genre='';
@@ -59,16 +66,17 @@ export const renderMovie=async (id:number)=>{
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" id="info__poster">
                     <div class="movie__rating">${movie.vote_average}</div>
                 </div>
-                <div class="movie__name">${movie.title}</div>
-                <div class="movie__year">${movie.release_date}</div>
+                <div class="movie__name">${type==="movie"?movie.title:movie.name}</div>
+                <div class="movie__year">${type==="movie"?movie.release_date:movie.first_air_date}</div>
                 <div class="movie__geners">
                     ${genre}
                 </div>
                 <div class="movie__overview">${movie.overview}</div>
-                <div class="movies__scroll">
+                ${type==="movie"?
+                    `<div class="movies__scroll">
                     <div class="scroll__header">Similar Movies</div>
                     <div class="movies__body"></div>
-                </div>
+                </div>`:""}}
             </div>`;
 
 	Elements.movieScreen.innerHTML=el;
@@ -77,13 +85,21 @@ export const renderMovie=async (id:number)=>{
     Elements.movieScreen.innerHTML="";
 	});
 
-	renderSimilarMovies(id);
+	if(type!=="tv"){
+        renderSimilarMovies(id);
+    }
 }
 
 
-export const renderMovieAddScreen=async(id:number)=>{
-	const data=await MovieDB.getMovie("movie",id);
-	const movie:Movie=data.data;
+export const renderMovieAddScreen=async(id:number,type:string)=>{
+    let data;
+
+        if(type==="movie"){
+          data=await MovieDB.getMovie("movie",id);
+        }else{
+            data=await MovieDB.getMovie("tv",id);
+        }	
+    const movie:Movie=data.data;
 	console.log(movie);
 	let genre='';
 	if(movie.genres){
@@ -108,8 +124,8 @@ export const renderMovieAddScreen=async(id:number)=>{
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" id="info__poster">
                     <div class="movie__rating">${movie.vote_average}</div>
                 </div>
-                <div class="movie__name">${movie.title}</div>
-                <div class="movie__year">${movie.release_date}</div>
+                <div class="movie__name">${type==="movie"?movie.title:movie.name}</div>
+                <div class="movie__year">${type==="movie"?movie.release_date:movie.first_air_date}</div>
                 <div class="movie__geners">${genre}</div>
                 <div class="movie__overview">${movie.overview}</div>
 
@@ -126,6 +142,10 @@ export const renderMovieAddScreen=async(id:number)=>{
                             <option value="720p">720p</option>
                             <option value="1080p">1080p</option>
                             <option value="4k">4k</option>
+                    </select>
+                    <select id="item__type">
+                            <option value="movie">Movie</option>
+                            <option value="tv">TV</option>
                     </select>
                     <div class="submit__button">Insert</div>
                 </div>
@@ -144,9 +164,10 @@ export const renderMovieAddScreen=async(id:number)=>{
         if(size){
             const unit=(document.getElementById("size__unit")!as HTMLSelectElement).value;
             const movieData={
-                title:movie.title,
+                title:type!=="tv"?movie.title:movie.name,
                 posterPath:movie.poster_path,
-                releaseDate:new Date(movie.release_date).toISOString(),
+                category:(document.getElementById("item__type")!as HTMLSelectElement).value,
+                releaseDate:new Date(type!=="tv"?movie.release_date!:movie.first_air_date!).toISOString(),
                 size:unit==="GB"?(+size*1024).toFixed(2):+size,
                 movieId:movie.id,
                 genres:movie.genres,
@@ -161,7 +182,7 @@ export const renderMovieAddScreen=async(id:number)=>{
             alert("Please provide the size!!!");
         }
     }catch(err){
-        console.log(err.response.data.message);
+        console.log(err.response);
         alert(err.response.data.message);
     }
     });

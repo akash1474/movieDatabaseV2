@@ -91,6 +91,20 @@
                 transition-duration: 500ms;
                 box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), 0px -2px 5px #fff;
 
+
+                    &::-webkit-scrollbar {
+                            width: 5px;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background-color: rgb(167, 167, 167);
+                            width: 5px;
+                            border-radius: 5px;
+                        }
+                        &::-webkit-scrollbar-track {
+                            width: 5px;
+                        }
+
                 .search__results--movie {
                     height: 90px;
                     width: 94%;
@@ -213,11 +227,11 @@
                 }
                 p:first-child {
                     color: $black;
-                    font-size: 15px;
+                    font-size: 14px;
                 }
                 p:last-child {
                     color: $white;
-                    font-size: 20px;
+                    font-size: 18px;
                 }
             }
         }

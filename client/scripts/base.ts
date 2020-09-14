@@ -46,4 +46,7 @@ export interface Movie {
     overview?:string,
     tagline?:string,
     status?:string,
+    media_type?:string,
+    first_air_date?:string,
+    name?:string,
 }

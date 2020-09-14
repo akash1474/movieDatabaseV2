@@ -100,7 +100,7 @@ Login();
 Elements.movieImage.addEventListener('click',(_)=>{
     console.log("Clicked!!")
     Elements.movieScreen.style.display="grid";
-   renderMovie(+Elements.movieImage.dataset.id!);
+   renderMovie(+Elements.movieImage.dataset.id!,"movie");//////////////////////////////////////////
 });
 
 Elements.searchResults.addEventListener('click',(e)=>{
@@ -171,12 +171,6 @@ Elements.searchInput.addEventListener('input',(e)=>{
 /////////////////////////////////////////////
 /// TODO
 /// Create a agrigation pipeline for getting the overall stats of entire database
-/// make changes in the places if they use GB ----
-/// Find a way to search for the movieScreen
-/// differentiate the enter results for hardisk and online-search
-/// Work on the Movies List Screen
-/// Create a login successfull popup Card
-/// Create a git repository
 /// Launch the app to heroku
 /// Test the app
 /// Add all the movies in hardisk to server

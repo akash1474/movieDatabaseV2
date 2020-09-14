@@ -33,13 +33,11 @@
                 <div class="body__center">
                 <h1 class="center__header">
                     <p>Hey there</br>What's Up</p>
-                    <div class="stats">
-                        <p>Total Movies</p>
-                        <p><%=data.length%></p>
+                    <div class="overallStats">
+                        <div class="stats">
+                        <p>Total Size</p>
+                        <p><%=((overallStats[1].totalSize+overallStats[0].totalSize)/1024).toFixed(2)%> GB</p>
                     </div>
-                    <div class="stats">
-                        <p>Total Movies</p>
-                        <p><%=data.length%></p>
                     </div>
                 </h1>
                 <div class="center__intro">

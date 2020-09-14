@@ -11,6 +11,7 @@ userRouter.get('/me', authController.protect, authController.myDetails);
 const movieRouter = new express.Router();
 
 movieRouter.get('/',movieController.getAllMovies);
+movieRouter.get('/stats',movieController.overallStats);
 movieRouter.get('/search/:query',movieController.searchMovie);
 movieRouter.use(authController.protect);
 movieRouter

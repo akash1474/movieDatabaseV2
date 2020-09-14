@@ -1,6 +1,20 @@
 const Movie = require('./test');
 const catchAsync = require('./catchAsync');
 
+exports.overallStats=catchAsync(async(req,res,next)=>{
+    const data=await Movie.aggregate([{
+                                            $group:{
+                                                    _id:'$category',
+                                                    totalCount:{$sum:1},
+                                                    totalSize:{$sum:'$size'}
+                                                }
+                                        }]);
+    res.status(200).json({
+        status:"success",
+        data,
+    });
+})
+
 exports.createMovie = catchAsync(async (req, res, next) => {
     const movie = await Movie.create(req.body);
 

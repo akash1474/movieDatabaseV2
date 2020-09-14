@@ -1,0 +1,19 @@
+db.movies.aggregate([
+{
+	$group:{
+		_id:'$category',
+		type:"$category",
+		totalCount:{$sum:1},
+		totalSize:{$sum:'$size'}
+	}
+},
+{
+        $project:{
+        _id:null,
+        type:1,
+        totalCount:1,
+        totalSize:1,
+        sizeInGB:{$trunc:[{$divide:["$totalSize",1024]},2]},
+    }
+}
+]).pretty();

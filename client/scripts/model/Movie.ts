@@ -9,6 +9,13 @@ export default class MovieDB {
         ) as AxiosResponse;
     }
 
+    static async getTv(media:string,id:number) {
+        return await axios(
+            `https://api.themoviedb.org/3/${media}/${id}?api_key=${this.key}`
+        ) as AxiosResponse;
+    }
+
+
     static async getCredits(media:string,id:number) {
         return await axios(
             `https://api.themoviedb.org/3/${media}/${id}/credits?api_key=${this.key}`
