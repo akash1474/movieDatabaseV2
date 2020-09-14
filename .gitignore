@@ -2,3 +2,4 @@ node_modules
 client/assets
 client/test
 client/node_modules
+*.env

@@ -11,9 +11,9 @@ const app = require('./app.js');
 dotenv.config({ path: './config.env' });
 
 const LDB = process.env.LOCAL_DATABASE;
-
+const DB = process.env.DATABASE.replace('<password>', process.env.PASSWORD);
 mongoose
-    .connect(LDB, {
+    .connect(DB, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,
@@ -22,7 +22,7 @@ mongoose
         console.log('Database Connection Successfull!!!');
     });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
     console.log(`Server started at port:${port}`);
 });
