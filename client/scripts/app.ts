@@ -15,15 +15,10 @@ async function searchQuery(isOnline:boolean) {
     }
     if(isOnline){
         const searchResults = (await Search.getResult(query)) as Movie[];
-        console.log('SearchResults', searchResults);
         renderResults(searchResults,Elements.searchResultsOnline,true);
-    }else{
-        
-        // renderResults()
     }
 }
 
-// console.log(movies);
 
 lottie.loadAnimation({
     container: document.querySelector('.recently__animation')!, // the dom element that will contain the animation
@@ -93,14 +88,9 @@ Elements.movieScreen.addEventListener('click',(e)=>{
 
 Login();
 
-// Elements.movieScreenClose.addEventListener('click',(_)=>{
-//     Elements.movieScreen.style.display="none";
-// });
-
 Elements.movieImage.addEventListener('click',(_)=>{
-    console.log("Clicked!!")
     Elements.movieScreen.style.display="grid";
-   renderMovie(+Elements.movieImage.dataset.id!,"movie");//////////////////////////////////////////
+   renderMovie(+Elements.movieImage.dataset.id!,"movie");
 });
 
 Elements.searchResults.addEventListener('click',(e)=>{
@@ -116,7 +106,6 @@ Elements.searchResults.addEventListener('click',(e)=>{
 
 
 Elements.moviesContainer.addEventListener('click',(e)=>{
-    console.log(Elements.moviesContainer.children);
     const target =e.target! as HTMLDivElement;
     if(target.className==='bucket__add--popup'){
         Bucket.addToBucket({

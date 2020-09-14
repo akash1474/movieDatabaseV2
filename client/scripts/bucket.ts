@@ -16,7 +16,6 @@ export default class Bucket{
        this.bucket.forEach((el)=>{
               totalSize+=el.size;
        });
-       console.log(totalSize);
        return totalSize;
    }
 
@@ -98,7 +97,6 @@ export default class Bucket{
     static removeItem(id:number){
        const index= this.bucket.findIndex((item)=>item.id===id);
        this.bucket.splice(index,1);
-       console.log(this.bucket);
        this.render();
     }
 }

@@ -6,7 +6,6 @@ export const renderResults = (data: Movie[],container:HTMLDivElement,isOnline:bo
 
     if(isOnline){
            data.forEach((movie)=>{
-             console.log(movie.media_type);
                    if(movie.media_type==="movie"){
                     if (movie.poster_path === null) {
                         return;

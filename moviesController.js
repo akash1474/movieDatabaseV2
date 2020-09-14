@@ -38,7 +38,6 @@ exports.getMovie = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllMovies = catchAsync(async (req, res, next) => {
-    console.log(req.query);
     const queryObj = { ...req.query };
     //Filtering
     const exFields = ['page', 'sort', 'limit', 'fields'];

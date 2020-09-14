@@ -2,18 +2,9 @@ import {Elements,Movie} from '../base';
 import MovieDB from '../model/Movie';
 import Axios from 'axios';
 
-// const downloadResources=async()=>{
-//     const data=await Axios.get('http://localhost:3000/api/v1/movies');
-//     console.log(data.data.data);
-// }
-
-// downloadResources();
-
-
 const renderSimilarMovies=async (id:number)=>{
 	const similardata=await MovieDB.getSimilar("movie",id);
 	const similarMovies:Movie[]=similardata.data.results;
-	console.log(similarMovies);
 	const similarContainer=document.querySelector('.movies__body')! as HTMLDivElement;
 	similarMovies.forEach(movie=>{
 		const el=`<div class="similar__movie">
@@ -42,7 +33,6 @@ export const renderMovie=async (id:number,type:string)=>{
     }
 
 	const movie:Movie=data.data;
-	console.log(movie);
 	let genre='';
 	if(movie.genres){
 		let imax=movie.genres.length-1;
@@ -100,7 +90,6 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
             data=await MovieDB.getMovie("tv",id);
         }	
     const movie:Movie=data.data;
-	console.log(movie);
 	let genre='';
 	if(movie.genres){
 		let imax=movie.genres.length-1;
@@ -175,14 +164,11 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
                 voteAverage:movie.vote_average,
                 quality:(document.getElementById("movie__quality")!as HTMLSelectElement).value,
             }
-            console.log(movieData); 
-            const res=await Axios.post('http://localhost:3000/api/v1/movies',movieData);
-            console.log(res);
+            await Axios.post('http://localhost:3000/api/v1/movies',movieData);
         }else{
             alert("Please provide the size!!!");
         }
     }catch(err){
-        console.log(err.response);
         alert(err.response.data.message);
     }
     });
