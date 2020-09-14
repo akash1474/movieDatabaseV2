@@ -1,7 +1,7 @@
 const Axios =require('axios');
 const Movie=require('./test');
 exports.renderHomepage = async (req, res, next) => {
-	// var data = await Axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
+	var data = await Axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
     const overall=[
         {
             _id:"movie",
@@ -26,9 +26,15 @@ let info=await Movie.aggregate([{
     if(info.length===0){
         info=overall;
     }
+    if(info.length===1){
+        info.push({
+            totalSize:0,
+            totalCount:0,
+        })
+    }
     res.status(200).render('index', {
         data: movies,
-        trending:[],
+        trending:data.data.results,
         overallStats:info,
     });
 };
