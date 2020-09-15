@@ -150,7 +150,8 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
     	Elements.movieAddScreen.innerHTML="";
     });
 
-    const submitButton= document.querySelector(".submit__button")!;
+    const submitButton= document.querySelector(".submit__button")! as HTMLDivElement;
+    submitButton.style.backgroundColor="#9395f8";
     const spinner=document.getElementById('add-spinner')!;
    submitButton.addEventListener('click',async(_)=>{
         try{
@@ -180,7 +181,9 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
                 quality:(document.getElementById("movie__quality")!as HTMLSelectElement).value,
             }
             await Axios.post('https://hardrive-database-1474.herokuapp.com/api/v1/movies',movieData);
+            submitButton.style.backgroundColor="#11C8A6";
             submitButton.innerHTML=successEl;
+
         }else{
             alert("Please provide the size!!!");
             spinner.style.display="none";
