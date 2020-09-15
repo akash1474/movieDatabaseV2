@@ -32,9 +32,10 @@ let info=await Movie.aggregate([{
             totalCount:0,
         })
     }
+
     res.status(200).render('index', {
         data: movies,
         trending:data.data.results,
-        overallStats:info,
+        overallStats:[info[info.findIndex((el)=>el._id==='tv')],info[info.findIndex((el)=>el._id==='movie')]],
     });
 };

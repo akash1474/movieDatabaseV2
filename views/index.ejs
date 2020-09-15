@@ -82,7 +82,7 @@
 	                    	<%data.reverse()%>
 	                	<%data.forEach(movie=>{%>
 	                		<div class="recent__movie">
-                                <img src="https://image.tmdb.org/t/p/w500<%=movie.posterPath%>" data-id="<%=movie.id%>" id="open-movie-info" alt="">
+                                <img src="https://image.tmdb.org/t/p/w500<%=movie.posterPath%>" data-id="<%=movie.movieId%>" data-type="<%=movie.category!=="tv"?"movie":"tv"%>" id="open-movie-info">
                                 <div class="recent__movie--title"><%=movie.title%></div>
                             </div>
 			                		<%})%>
@@ -100,11 +100,10 @@
 
                     <div class="recent__body">
                             <%if(trending.length>0){%>
-                            <%data.reverse()%>
                         <%trending.forEach(movie=>{%>
                             <div class="recent__movie">
-                                <img src="https://image.tmdb.org/t/p/w500<%=movie.poster_path%>" data-id="<%=movie.id%>" id="open-movie-info" alt="">
-                                <div class="recent__movie--title"><%=movie.title%></div>
+                                <img src="https://image.tmdb.org/t/p/w500<%=movie.poster_path%>" data-id="<%=movie.id%>" id="open-movie-info" data-type="<%=movie.media_type!=="tv"?"movie":"tv"%>">
+                                <div class="recent__movie--title"><%=movie.media_type!=="tv"?movie.title:movie.name%></div>
                             </div>
                                     <%})%>
                             <%}%>

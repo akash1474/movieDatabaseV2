@@ -88,9 +88,12 @@ Elements.movieScreen.addEventListener('click',(e)=>{
 
 Login();
 
-Elements.movieImage.addEventListener('click',(_)=>{
-    Elements.movieScreen.style.display="grid";
-   renderMovie(+Elements.movieImage.dataset.id!,"movie");
+document.addEventListener('click',(e)=>{
+    const target=(e.target! as HTMLImageElement)!;
+    if(target.id==='open-movie-info'){
+        Elements.movieScreen.style.display="grid";
+        renderMovie(+target.dataset.id!,target.dataset.type!);
+    }
 });
 
 Elements.searchResults.addEventListener('click',(e)=>{
@@ -102,6 +105,9 @@ Elements.searchResults.addEventListener('click',(e)=>{
            size:+target.dataset.size!,
        },target);
     }
+    // else if(target.className==='movie-name' || target.className==='movie-image'){
+
+    // }
 });
 
 
@@ -151,15 +157,3 @@ Elements.searchInput.addEventListener('input',(e)=>{
         })
     }
 });
-
-
-
-
-
-
-/////////////////////////////////////////////
-/// TODO
-/// Create a agrigation pipeline for getting the overall stats of entire database
-/// Launch the app to heroku
-/// Test the app
-/// Add all the movies in hardisk to server

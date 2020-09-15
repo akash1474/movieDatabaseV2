@@ -261,6 +261,7 @@
                     flex-direction: column;
                     align-items: center;
                     cursor:pointer;
+                    overflow: hidden;
                 }
 
                 .welcome__tv{
@@ -275,7 +276,6 @@
 
                     &:hover>.info{
                         opacity: 1;
-                        transform: translateY(0);
                     }
                 }
 
@@ -482,6 +482,7 @@
                         border-radius: 5px;
                         height: 115px;
                         width: auto;
+                        cursor: pointer;
                     }
 
                     .recent__movie--title {

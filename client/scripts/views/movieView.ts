@@ -136,8 +136,12 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
                             <option value="movie">Movie</option>
                             <option value="tv">TV</option>
                     </select>
-                    <div class="submit__button">Insert</div>
                 </div>
+                <div class="submit__button"><svg id="add-spinner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background:transparent;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<circle cx="50" cy="50" r="32" stroke-width="8" stroke="#fff" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
+  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.5847953216374269s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+</circle>
+</svg>Insert</div>
             </div>`;
 
     Elements.movieAddScreen.innerHTML=el;
@@ -146,11 +150,22 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
     	Elements.movieAddScreen.innerHTML="";
     });
 
-
-    document.querySelector(".submit__button")!.addEventListener('click',async(_)=>{
+    const submitButton= document.querySelector(".submit__button")!;
+    const spinner=document.getElementById('add-spinner')!;
+   submitButton.addEventListener('click',async(_)=>{
         try{
         const size=(document.getElementById("movie__size")!as HTMLInputElement).value;
         if(size){
+            spinner.style.display="block";
+            const successEl=`<svg id="icon-check-circle" viewBox="0 0 24 24" style="
+    height: 20px;
+    width: 20px;
+    display:block;
+    fill:#fff;
+    padding:2px 15px;
+">
+<path d="M21 11.080v0.92c-0.001 2.485-1.009 4.733-2.64 6.362s-3.88 2.634-6.365 2.632-4.734-1.009-6.362-2.64-2.634-3.879-2.633-6.365 1.009-4.733 2.64-6.362 3.88-2.634 6.365-2.633c1.33 0.001 2.586 0.289 3.649 0.775 0.502 0.23 1.096 0.008 1.325-0.494s0.008-1.096-0.494-1.325c-1.327-0.606-2.866-0.955-4.479-0.956-3.037-0.002-5.789 1.229-7.78 3.217s-3.224 4.74-3.226 7.777 1.229 5.789 3.217 7.78 4.739 3.225 7.776 3.226 5.789-1.229 7.78-3.217 3.225-4.739 3.227-7.777v-0.92c0-0.552-0.448-1-1-1s-1 0.448-1 1zM21.293 3.293l-9.293 9.302-2.293-2.292c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414l3 3c0.391 0.391 1.024 0.39 1.415 0l10-10.010c0.39-0.391 0.39-1.024-0.001-1.414s-1.024-0.39-1.414 0.001z"></path>
+</svg>`;
             const unit=(document.getElementById("size__unit")!as HTMLSelectElement).value;
             const movieData={
                 title:type!=="tv"?movie.title:movie.name,
@@ -165,10 +180,13 @@ export const renderMovieAddScreen=async(id:number,type:string)=>{
                 quality:(document.getElementById("movie__quality")!as HTMLSelectElement).value,
             }
             await Axios.post('https://hardrive-database-1474.herokuapp.com/api/v1/movies',movieData);
+            submitButton.innerHTML=successEl;
         }else{
             alert("Please provide the size!!!");
+            spinner.style.display="none";
         }
     }catch(err){
+        spinner.style.display="none";
         alert(err.response.data.message);
     }
     });

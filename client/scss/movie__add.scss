@@ -131,6 +131,22 @@
 			color:#777;
 			height: fit-content;
 			max-height: 130px;
+			overflow: hidden;
+			overflow-y:auto; 
+
+			    &::-webkit-scrollbar {
+                            width: 5px;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background-color: rgb(167, 167, 167);
+                            width: 5px;
+                            border-radius: 5px;
+                        }
+                        &::-webkit-scrollbar-track {
+                            width: 5px;
+                        }
+
 		}
 
 		.movie__submit{
@@ -170,18 +186,29 @@
 			}
 			}
 
+		}
 			.submit__button{
-				background-color:lighten($darkBlue, 5);
-				color:#fff;
-				font-family: "Product Sans Medium";
-				padding:4px 12px;
-				cursor: pointer;
-				font-size:14px;
-				border-radius:5px;
+				    background-color: #9395f8;
+				    color: #fff;
+				    font-family: "Product Sans Medium";
+				    padding: 4px 12px;
+				    cursor: pointer;
+				    font-size: 14px;
+				    border-radius: 5px;
+				    display: flex;
+				    align-items: center;
+				    justify-content: center;
+				    transition-duration: 0.35s;
 				&:hover{
 					background-color:$darkBlue;
 				}
+
+				svg{
+					height: 25px;
+					width: 25px;
+					margin-right: 5px;
+					display: none;
+				}
 			}
-		}
 	}
 }
