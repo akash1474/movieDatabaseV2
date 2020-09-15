@@ -9,7 +9,7 @@ userRouter.post('/login', authController.login);
 userRouter.get('/me', authController.protect, authController.myDetails);
 
 const movieRouter = new express.Router();
-
+movieRouter.get('/download',movieController.downloadPosters);
 movieRouter.get('/',movieController.getAllMovies);
 movieRouter.get('/stats',movieController.overallStats);
 movieRouter.get('/search/:query',movieController.searchMovie);

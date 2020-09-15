@@ -858,7 +858,12 @@ body {
         color: #fff;
         width: 50%;
         background-color: #7b7ef6;
-        cursor: pointer; }
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .login__screen .login__container #user__form button svg {
+          margin-right: 5px; }
         .login__screen .login__container #user__form button:hover {
           background-color: #9395f8; }
         .login__screen .login__container #user__form button:active {

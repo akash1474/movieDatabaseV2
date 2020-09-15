@@ -91,6 +91,13 @@
                 width: 50%;
                 background-color: $darkBlue;
                 cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg{
+                    margin-right: 5px;
+                }
 
                 &:hover {
                     background-color: lighten($darkBlue, 5);
