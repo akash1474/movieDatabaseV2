@@ -27,4 +27,16 @@
 		color: $black;
 		margin-top:10px;
 	}
+
+	.redirecting{
+		width: 70px;
+		margin-top:10px;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+
+		svg{
+			margin-right: 5px;
+		}
+	}
 }

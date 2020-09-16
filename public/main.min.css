@@ -110,7 +110,8 @@ body {
       z-index: -4;
       opacity: 0;
       transition-duration: 500ms;
-      transform: translateY(-10%); }
+      transform: translateY(-10%);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); }
       .search-section .header-image .bucket__list .bucket__header {
         display: flex;
         justify-content: space-between;
@@ -1368,3 +1369,11 @@ body {
     font-size: 17px;
     color: #1e152f;
     margin-top: 10px; }
+  #popup__container .redirecting {
+    width: 70px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #popup__container .redirecting svg {
+      margin-right: 5px; }

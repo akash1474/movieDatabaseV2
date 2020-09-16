@@ -1,3 +1,4 @@
+import lottie from 'lottie-web';
 import {Elements} from './base';
 
 interface BucketItem{
@@ -59,6 +60,16 @@ export default class Bucket{
                                 Estimated duration for file transfer:<b class="time">${(totalSize/1024*0.7).toFixed(2)} min</b>
                             </div>`;
                     Elements.bucketList.innerHTML=el;
+                    const bucketBody=document.querySelector('.bucket__body')! as HTMLDivElement;
+                    if(bucketBody.children.length===0){
+                        lottie.loadAnimation({
+                        container: bucketBody, // the dom element that will contain the animation
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'empty.json', // the path to the animation json
+                    });
+                    }
                     (document.querySelector('.icon-cross')! as SVGElement).addEventListener("click", (_) => {
                     Elements.bucketList.style.transform = "translateY(-10%)";
                     Elements.bucketList.style.opacity = "0";
