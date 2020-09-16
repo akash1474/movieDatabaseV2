@@ -68,7 +68,7 @@ exports.isLoggedIn=catchAsync(async(req,res,next)=>{
     const decoded=await promisify(jwt.verify)(req.cookies.jwt,process.env.SECRET_KEY);
 
     const currentUser=await User.findById(decoded.id);
-
+    console.log("User logged in successfully!!!!");
     if(!currentUser){
       return next();
     }

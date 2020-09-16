@@ -13,22 +13,17 @@ const loginPopUp=document.getElementById('popup__container')!;
 export default function initiateLogin(){
 			const form=document.getElementById('user__form')!as HTMLFormElement;
 			form.addEventListener('submit',async(e)=>{
-			//////////////////////////////////////////////
-			/// 
-			/// 
-			/// 
 			const spinner=`<svg id="add-spinner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background:transparent;" width="22px" height="22px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-<circle cx="50" cy="50" r="32" stroke-width="8" stroke="#fff" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
-  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.5847953216374269s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
-</circle>
-</svg>`;
+			<circle cx="50" cy="50" r="32" stroke-width="8" stroke="#fff" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
+			  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.5847953216374269s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+			</circle>
+			</svg>`;
 	const loginSubmit=document.getElementById('login__submit--btn')! as HTMLButtonElement;
 		    try{
 			    e.preventDefault();
 			    loginSubmit.insertAdjacentHTML('afterbegin',spinner);
 			    const emailId=(document.getElementById("user__email")! as HTMLInputElement).value;
 			    const password=(document.getElementById("user__pass")! as HTMLInputElement).value;
-
 
 			    if(!emailId || !password){
 			       alert("Please enter email and password");
@@ -37,7 +32,6 @@ export default function initiateLogin(){
 				    		email:emailId,
 				    		password:password
 				    	});
-				    
 				   if(res.status===200){
 					   loginPopUp.style.display="flex";
 					   animation.play();
