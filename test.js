@@ -1,3 +1,3 @@
-const Movie=require('./movieModal');
+const Movie = require("./movieModal");
 
-module.exports=Movie;
+module.exports = Movie;
