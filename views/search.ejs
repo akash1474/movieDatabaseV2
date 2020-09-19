@@ -24,7 +24,7 @@
                     <%if(data.length>0){%>
                         <%data.forEach(movie=>{%>
                             <%const releaseYear = new Date(movie.releaseDate).getFullYear();%>
-                                <div data-title="<%=movie.movieId%>" data-id="<%=movie.id%>" class="movie">
+                                <div data-title="<%=movie.title%>" data-id="<%=movie.id%>" class="movie">
                         <img  data-id="<%=movie.movieId%>" data-type="<%=movie.category!=="tv"?"movie":"tv"%>" id="open-movie-info" src="https://image.tmdb.org/t/p/w500<%=movie.posterPath%>" height="80" width="65" alt="" class="movie-image" />
                         <div class="movie-rating"><%=movie.voteAverage%></div>
                         <div class="movie-info">
