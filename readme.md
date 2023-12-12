@@ -1,1 +1,1 @@
-![Editor](./editor.png)
+![Editor](./preview.png)
